@@ -39,7 +39,7 @@ class Program
 
                         displayBoard[y, x] = count.ToString()[0];
 
-                        if (count /*??*/ 0)
+                        if (count == 0)
                         {
                             // Odkryj sąsiadujące puste pola.
                             ExpandZeros(board, displayBoard, x, y);
@@ -69,7 +69,7 @@ class Program
     {
         char[,] board = new char[height, width];
 
-        Random random = /*??*/
+        Random random = new Random();
 
         // Wypełnij planszę bombami.
 
@@ -104,7 +104,7 @@ class Program
             }
         }
 
-        /*??*/ displayBoard;
+        return displayBoard;
     }
 
     static void DisplayBoard(char[,] board)
@@ -147,7 +147,7 @@ class Program
 
         for (int i = Math.Max(0, y - 1); i <= Math.Min(height - 1, y + 1); i++)
         {
-            for (int j = Math.Max(0, x - 1); j <= /*??*/(width - 1, x + 1); j++)
+            for (int j = Math.Max(0, x - 1); j <= Math.Min(width - 1, x + 1); j++)
             {
                 if (board[i, j] == '*')
                 {
@@ -200,7 +200,7 @@ class Program
             }
         }
 
-        return uncoveredCount == /* ??*/ * height - bombCount;
+        return uncoveredCount == (width * height - bombCount);
     }
 
 }
